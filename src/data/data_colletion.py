@@ -40,7 +40,7 @@ def save_data(df:pd.DataFrame, filepath:str)->None:
 #test_data.to_csv(os.path.join(data_path, 'test.csv'), index=False)
 def main():
     data_filepath=r"D:/projects/DVC project1/water_potability.csv"
-    params_filepath=r"D:/projects\DVC project1/params.yaml"
+    params_filepath=r"D:/projects/DVC project1/params.yaml"
     raw_data_path=os.path.join("data","raw")
     try:
         data=load_data(data_filepath)
