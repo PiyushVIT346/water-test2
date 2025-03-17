@@ -56,7 +56,7 @@ def save_model(model: RandomForestClassifier,filepath:str)->None:
 
 def main():
     try:
-        params_path=r"D:/projects/DVC project1/params.yaml"
+        params_path="params.yaml"
         data_path="./data/processed/train_processed.csv"
         model_name="model.pkl"
 
