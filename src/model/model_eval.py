@@ -77,8 +77,8 @@ def save_metrics(metrics_dict:dict,filepath:str)->None:
 def main():
     try:
         test_data_path="./data/processed/test_processed.csv"
-        model_path="./model.pkl"
-        metrics_path="./metrics.json"
+        model_path="models/model.pkl"
+        metrics_path="reports/metrics.json"
 
         test_data=load_data(test_data_path)
         x_test, y_test = prepare_data(test_data)

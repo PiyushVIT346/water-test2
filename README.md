@@ -1,3 +1,41 @@
+(myenv) D:\projects\DVC project2\water-potability-prediction>d
+vc init
+(myenv) D:\projects\DVC project2\water-potability-prediction>d
+vc stage add -n data_collection -d src/data/data_colletion.py
+ -o data/raw python src/data/data_collection.py
+(myenv) D:\projects\DVC project2\water-potability-prediction>d
+vc repro
+(myenv) D:\projects\DVC project2\water-potability-prediction>d
+vc dag
+(myenv) D:\projects\DVC project2\water-potability-prediction>d
+vc stage add -n pre_processing -d src/data/data/data_prep.py -
+d data/raw -o data/processed python src/data/data_prep.py
+(myenv) D:\projects\DVC project2\water-potability-prediction>d
+vc repro
+(myenv) D:\projects\DVC project2\water-potability-prediction>d
+vc dag
+(myenv) D:\projects\DVC project2\water-potability-prediction>d
+vc stage add -n model_building -d src/model/model_building.py 
+-d data/processed -o models/model.pkl python src/model/model_b
+uilding.py
+Add this line in dvc.yaml in data_collection stage under depe
+params:
+    - data_collection.test_size
+Add this line in dvc.yaml in model_building stage under dependencies
+params:
+    - model_building.n_estimators
+(myenv) D:\projects\DVC project2\water-potability-prediction>dvc repro
+(myenv) D:\projects\DVC project2\water-potability-prediction>d
+vc stage add -n model_eval -d src/model/model_eval.py -d model
+s/model.pkl --metrics reports/metrics.json python src/model/mo
+del_eval.py
+(myenv) D:\projects\DVC project2\water-potability-prediction>d
+vc repro
+(myenv) D:\projects\DVC project2\water-potability-prediction>d
+vc dag
+(myenv) D:\projects\DVC project2\water-potability-prediction>d
+vc metrics show
+
 water-potability-prediction
 ==============================
 
